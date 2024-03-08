@@ -1,5 +1,16 @@
 import React from "react";
 import {
+  List,
+  ListItemButton,
+  ListItemText,
+  ListItemIcon,
+} from "@mui/material";
+
+import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
+import LocalActivityIcon from "@mui/icons-material/LocalActivity";
+import FormatListNumberedIcon from "@mui/icons-material/FormatListNumbered";
+import RestaurantIcon from "@mui/icons-material/Restaurant";
+import {
   Container,
   Typography,
   Button,
@@ -17,6 +28,33 @@ const generateRandomHealthImageUrl = () => {
   const randomId = Math.floor(Math.random() * 1000);
   return `https://source.unsplash.com/300x200/?${randomCategory}&${randomId}`;
 };
+
+const features = [
+  {
+    title: "BMI Calculator",
+    description:
+      "Calculate your Body Mass Index (BMI) to assess your weight status.",
+    icon: <FormatListNumberedIcon />,
+  },
+  {
+    title: "Lean Mass & Fat Mass",
+    description:
+      "Track your lean mass and fat mass to monitor your body composition.",
+    icon: <FitnessCenterIcon />,
+  },
+  {
+    title: "Calorie Tracker",
+    description:
+      "Keep track of your daily calorie intake to maintain a healthy diet.",
+    icon: <RestaurantIcon />,
+  },
+  {
+    title: "Fitness Lifestyle",
+    description:
+      "Get tips and advice on adopting a fit lifestyle for better health.",
+    icon: <LocalActivityIcon />,
+  },
+];
 
 const LandingPage = () => {
   return (
@@ -47,66 +85,28 @@ const LandingPage = () => {
       {/* Product section */}
       <Container maxWidth="lg" sx={{ marginTop: "3rem", marginBottom: "3rem" }}>
         <Grid container spacing={3} justifyContent="center">
-          <Grid item xs={12} sm={6} md={4}>
-            <Card>
-              <CardMedia
-                component="img"
-                height="140"
-                image={generateRandomHealthImageUrl()}
-                alt="Product 1"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Fitness Tracker
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  Track your daily steps, calories burned, and active minutes
-                  with our advanced fitness tracker. Stay motivated and achieve
-                  your fitness goals!
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card>
-              <CardMedia
-                component="img"
-                height="140"
-                image={generateRandomHealthImageUrl()}
-                alt="Product 2"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Nutrition Guide
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  Get access to personalized nutrition plans and recipes
-                  tailored to your dietary preferences and fitness goals. Fuel
-                  your body for optimal performance!
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card>
-              <CardMedia
-                component="img"
-                height="140"
-                image={generateRandomHealthImageUrl()}
-                alt="Product 3"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Workout Planner
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  Plan and schedule your workouts with ease using our intuitive
-                  workout planner. Stay consistent and make progress towards
-                  your fitness goals!
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
+          {features.map((feature, index) => (
+            <Grid item xs={12} sm={6} md={4}>
+              <Card>
+                <CardMedia
+                  component="img"
+                  height="140"
+                  image={generateRandomHealthImageUrl()}
+                  alt="Product 1"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    Fitness Tracker
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary">
+                    Track your daily steps, calories burned, and active minutes
+                    with our advanced fitness tracker. Stay motivated and
+                    achieve your fitness goals!
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
         </Grid>
       </Container>
     </div>

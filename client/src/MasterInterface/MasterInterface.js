@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import CustomAppBar from "./CustomAppBar";
 import Appearance from "./Appearance";
 import Home from "./Home";
+import Footer from "./Footer";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
@@ -118,6 +119,7 @@ export default function MasterInterface() {
             />
           </Routes>
         </BrowserRouter>
+        <Footer />
       </Container>
     </ThemeProvider>
   );
