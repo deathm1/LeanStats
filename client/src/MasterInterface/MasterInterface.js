@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
 import CustomAppBar from "./CustomAppBar";
 import Appearance from "./Appearance";
+import SignupPage from "./LoginController/SignupPage";
 import Home from "./Home";
 import Footer from "./Footer";
+import Calculators from "./Calculators";
+import LoginPage from "./LoginController/LoginPage";
+import PageNotFound from "./PageNotFound";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { Typography } from "@mui/material";
 
 export default function MasterInterface() {
   const [siteAppearance, setSiteAppearance] = useState({
-    siteName: "LeanStats",
+    siteName: "Lean Stats",
     pages: [
       {
         displayName: "Home",
@@ -20,6 +23,10 @@ export default function MasterInterface() {
       {
         displayName: "Appearance",
         url: "/appearance",
+      },
+      {
+        displayName: "Calculators",
+        url: "/calculators",
       },
     ],
     settings: [
@@ -39,6 +46,28 @@ export default function MasterInterface() {
       "Open Sans",
     ],
     defaultTheme: false,
+    features: [
+      {
+        title: "BMI Calculator",
+        description:
+          "Calculate your Body Mass Index (BMI) to assess your weight status.",
+      },
+      {
+        title: "Lean Mass & Fat Mass",
+        description:
+          "Track your lean mass and fat mass to monitor your body composition.",
+      },
+      {
+        title: "Calorie Tracker",
+        description:
+          "Keep track of your daily calorie intake to maintain a healthy diet.",
+      },
+      {
+        title: "Fitness Lifestyle",
+        description:
+          "Get tips and advice on adopting a fit lifestyle for better health.",
+      },
+    ],
   });
 
   const lightTheme = createTheme({
@@ -91,12 +120,16 @@ export default function MasterInterface() {
   return (
     <ThemeProvider theme={siteAppearance.defaultTheme ? darkTheme : lightTheme}>
       <CssBaseline />
-      <Container maxWidth="xl" disableGutters>
+      <Container maxWidth="lg" disableGutters>
         <CustomAppBar siteName="LeanStats" siteAppearance={siteAppearance} />
 
         <BrowserRouter>
           <Routes>
-            <Route exact path="/" element={<Home />} />
+            <Route
+              exact
+              path="/"
+              element={<Home features={siteAppearance.features} />}
+            />
             <Route
               path="/appearance"
               element={
@@ -106,17 +139,37 @@ export default function MasterInterface() {
                 />
               }
             />
+
             <Route
-              path="*"
+              path="/login"
               element={
-                <Container maxWidth="sm">
-                  <Typography variant="h4">404 - Page Not Found</Typography>
-                  <Typography variant="body1">
-                    The page you are looking for does not exist.
-                  </Typography>
-                </Container>
+                <LoginPage
+                  setSiteAppearance={setSiteAppearance}
+                  siteAppearance={siteAppearance}
+                />
               }
             />
+
+            <Route
+              path="/signup"
+              element={
+                <SignupPage
+                  setSiteAppearance={setSiteAppearance}
+                  siteAppearance={siteAppearance}
+                />
+              }
+            />
+            <Route
+              path="/calculators"
+              element={
+                <Calculators
+                  setSiteAppearance={setSiteAppearance}
+                  siteAppearance={siteAppearance}
+                />
+              }
+            />
+
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
         <Footer />

@@ -5,7 +5,7 @@ const HomePage = () => {
   return (
     <footer
       style={{
-        marginTop: "auto",
+        marginTop: "12px",
         textAlign: "center",
         paddingBottom: "20px",
       }}
@@ -14,7 +14,7 @@ const HomePage = () => {
         © {new Date().getFullYear()} Lean Stats. All rights reserved.
       </Typography>
       <Typography variant="body2" color="textSecondary">
-        Designed with ❤️ by Your Name
+        Designed with ❤️ in India
       </Typography>
     </footer>
   );

@@ -11,6 +11,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
+import LoginController from "./LoginController/LoginState";
 
 function CustomAppBar(props) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -30,7 +31,6 @@ function CustomAppBar(props) {
 
   const handleCloseUserMenu = (url) => {
     setAnchorElUser(null);
-    window.location = url;
   };
 
   return (
@@ -136,42 +136,7 @@ function CustomAppBar(props) {
           ))}
         </Box>
 
-        <Box sx={{ flexGrow: 0 }}>
-          <Tooltip title="Open settings">
-            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-            </IconButton>
-          </Tooltip>
-          <Menu
-            sx={{ mt: "45px" }}
-            id="menu-appbar"
-            anchorEl={anchorElUser}
-            anchorOrigin={{
-              vertical: "top",
-              horizontal: "right",
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: "top",
-              horizontal: "right",
-            }}
-            open={Boolean(anchorElUser)}
-            onClose={handleCloseUserMenu}
-          >
-            {props.siteAppearance.settings.map((setting) => (
-              <MenuItem
-                key={setting.displayName}
-                onClick={() => {
-                  handleCloseUserMenu(setting.url);
-                }}
-              >
-                <Typography textAlign="center">
-                  {setting.displayName}
-                </Typography>
-              </MenuItem>
-            ))}
-          </Menu>
-        </Box>
+        <LoginController siteAppearance={props.siteAppearance} />
       </Toolbar>
     </AppBar>
   );
