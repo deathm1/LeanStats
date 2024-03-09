@@ -48,7 +48,7 @@ const SiteAppearancePage = (props) => {
           Font Size
         </Typography>
         <Slider
-          value={props.siteAppearance.defaultFontSize}
+          value={parseInt(props.siteAppearance.defaultFontSize)}
           onChange={handleFontSizeChange}
           aria-labelledby="font-size-slider"
           min={10}

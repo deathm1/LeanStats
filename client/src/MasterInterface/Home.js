@@ -90,7 +90,12 @@ export default function Home(props) {
       >
         {props.features.map((feature, index) => (
           <Grid key={index} item xs={12} sm={6} md={4}>
-            <Card variant="outlined">
+            <Card
+              variant="outlined"
+              onClick={() => {
+                window.location = feature.nav;
+              }}
+            >
               <CardActionArea>
                 <CardMedia
                   component="img"

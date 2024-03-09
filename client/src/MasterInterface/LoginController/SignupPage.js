@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  Container,
   Grid,
   Paper,
   TextField,
@@ -54,7 +53,7 @@ const SignupPage = () => {
   return (
     <Grid container justifyContent="center" alignItems="center">
       <Grid item xs={12} sm={8} md={4}>
-        <Paper elevation={3} style={{ padding: 40 }}>
+        <Paper variant="outlined" style={{ padding: 40 }}>
           <Typography variant="h6" align="center" gutterBottom>
             Create an Account
           </Typography>
@@ -64,6 +63,7 @@ const SignupPage = () => {
               margin="normal"
               label="First Name"
               size="small"
+              required
               variant="outlined"
               autoFocus
               value={firstName}
@@ -72,6 +72,7 @@ const SignupPage = () => {
             <TextField
               fullWidth
               margin="normal"
+              required
               size="small"
               label="Last Name"
               variant="outlined"
@@ -82,6 +83,7 @@ const SignupPage = () => {
               fullWidth
               margin="normal"
               size="small"
+              required
               label="Email"
               type="email"
               variant="outlined"
@@ -93,6 +95,7 @@ const SignupPage = () => {
               margin="normal"
               label="Password"
               size="small"
+              required
               type="password"
               variant="outlined"
               value={password}
@@ -103,6 +106,7 @@ const SignupPage = () => {
               margin="normal"
               label="Confirm Password"
               size="small"
+              required
               type="password"
               variant="outlined"
               value={confirmPassword}

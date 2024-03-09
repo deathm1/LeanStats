@@ -6,6 +6,7 @@ import Home from "./Home";
 import CustomAlert from "./CustomAlert/CustomAlert";
 import Footer from "./Footer";
 import Calculators from "./Calculators";
+import BmiCalculator from "./Calculators/BMICalculator";
 import CustomBreadcrumbs from "./CustomBreadcrumbs";
 import LoginPage from "./LoginController/LoginPage";
 import UserProfile from "./LoginController/UserProfile";
@@ -14,16 +15,17 @@ import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import BMICalculator from "./Calculators/BMICalculator";
 
 export default function MasterInterface() {
   const [alertConfig, setAlertConfig] = useState({
     severity: "error",
     title: "test",
     message: "test",
-    open: true,
+    open: false,
   });
   const [siteAppearance, setSiteAppearance] = useState({
-    siteName: "Lean Stats",
+    siteName: "Healthy Mon",
     pages: [
       {
         displayName: "Home",
@@ -60,6 +62,7 @@ export default function MasterInterface() {
         title: "BMI Calculator",
         description:
           "Calculate your Body Mass Index (BMI) to assess your weight status.",
+        nav: "calculators/bmi",
       },
       {
         title: "Lean Mass & Fat Mass",
@@ -131,6 +134,7 @@ export default function MasterInterface() {
       <CssBaseline />
       <Container maxWidth="lg" disableGutters>
         <CustomAppBar siteName="LeanStats" siteAppearance={siteAppearance} />
+
         <CustomAlert
           alertConfig={alertConfig}
           setAlertConfig={setAlertConfig}
@@ -138,6 +142,7 @@ export default function MasterInterface() {
 
         <BrowserRouter>
           <CustomBreadcrumbs />
+
           <Routes>
             <Route
               exact
@@ -187,6 +192,16 @@ export default function MasterInterface() {
               path="/profile"
               element={
                 <UserProfile
+                  setSiteAppearance={setSiteAppearance}
+                  siteAppearance={siteAppearance}
+                />
+              }
+            />
+
+            <Route
+              path="/calculators/bmi"
+              element={
+                <BMICalculator
                   setSiteAppearance={setSiteAppearance}
                   siteAppearance={siteAppearance}
                 />

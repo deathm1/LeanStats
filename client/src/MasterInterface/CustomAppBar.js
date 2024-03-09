@@ -6,31 +6,24 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
 import LoginController from "./LoginController/LoginState";
 
 function CustomAppBar(props) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
 
   const handleCloseNavMenu = (url) => {
     setAnchorElNav(null);
-    window.location = url;
-  };
 
-  const handleCloseUserMenu = (url) => {
-    setAnchorElUser(null);
+    if (typeof url === typeof "somestring") {
+      window.location = url;
+    }
   };
 
   return (
