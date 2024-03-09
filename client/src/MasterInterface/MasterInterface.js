@@ -3,9 +3,12 @@ import CustomAppBar from "./CustomAppBar";
 import Appearance from "./Appearance";
 import SignupPage from "./LoginController/SignupPage";
 import Home from "./Home";
+import CustomAlert from "./CustomAlert/CustomAlert";
 import Footer from "./Footer";
 import Calculators from "./Calculators";
+import CustomBreadcrumbs from "./CustomBreadcrumbs";
 import LoginPage from "./LoginController/LoginPage";
+import UserProfile from "./LoginController/UserProfile";
 import PageNotFound from "./PageNotFound";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -13,6 +16,12 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 export default function MasterInterface() {
+  const [alertConfig, setAlertConfig] = useState({
+    severity: "error",
+    title: "test",
+    message: "test",
+    open: true,
+  });
   const [siteAppearance, setSiteAppearance] = useState({
     siteName: "Lean Stats",
     pages: [
@@ -70,22 +79,22 @@ export default function MasterInterface() {
     ],
   });
 
-  const lightTheme = createTheme({
+  var lightTheme = createTheme({
     palette: {
       mode: "light",
     },
     typography: {
       fontFamily: siteAppearance.defaultFont,
-      fontSize: siteAppearance.defaultFontSize,
+      fontSize: parseInt(siteAppearance.defaultFontSize),
     },
   });
-  const darkTheme = createTheme({
+  var darkTheme = createTheme({
     palette: {
       mode: "dark",
     },
     typography: {
       fontFamily: siteAppearance.defaultFont,
-      fontSize: siteAppearance.defaultFontSize,
+      fontSize: parseInt(siteAppearance.defaultFontSize),
     },
   });
 
@@ -122,8 +131,13 @@ export default function MasterInterface() {
       <CssBaseline />
       <Container maxWidth="lg" disableGutters>
         <CustomAppBar siteName="LeanStats" siteAppearance={siteAppearance} />
+        <CustomAlert
+          alertConfig={alertConfig}
+          setAlertConfig={setAlertConfig}
+        />
 
         <BrowserRouter>
+          <CustomBreadcrumbs />
           <Routes>
             <Route
               exact
@@ -163,6 +177,16 @@ export default function MasterInterface() {
               path="/calculators"
               element={
                 <Calculators
+                  setSiteAppearance={setSiteAppearance}
+                  siteAppearance={siteAppearance}
+                />
+              }
+            />
+
+            <Route
+              path="/profile"
+              element={
+                <UserProfile
                   setSiteAppearance={setSiteAppearance}
                   siteAppearance={siteAppearance}
                 />

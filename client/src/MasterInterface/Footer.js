@@ -11,9 +11,6 @@ const HomePage = () => {
       }}
     >
       <Typography variant="body2" color="textSecondary">
-        © {new Date().getFullYear()} Lean Stats. All rights reserved.
-      </Typography>
-      <Typography variant="body2" color="textSecondary">
         Designed with ❤️ in India
       </Typography>
     </footer>

@@ -50,7 +50,7 @@ const LoginPage = () => {
       style={{ minHeight: "60vh" }}
     >
       <Grid item xs={10} sm={8} md={4}>
-        <Paper elevation={3} style={{ padding: 40 }}>
+        <Paper variant="outlined" style={{ padding: 40 }}>
           <Typography variant="h6" align="center" gutterBottom>
             Welcome Back!
           </Typography>
@@ -59,7 +59,8 @@ const LoginPage = () => {
               fullWidth
               size="small"
               margin="normal"
-              label="Username"
+              required
+              label="Email"
               variant="outlined"
               autoFocus
               value={username}
@@ -69,6 +70,7 @@ const LoginPage = () => {
               fullWidth
               size="small"
               margin="normal"
+              required
               label="Password"
               type="password"
               variant="outlined"
