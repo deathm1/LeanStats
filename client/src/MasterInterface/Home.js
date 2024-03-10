@@ -26,7 +26,7 @@ export default function Home(props) {
     <div style={{ marginLeft: "10px", marginRight: "10px" }}>
       <div
         style={{
-          minHeight: "45vh",
+          minHeight: "70vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -38,7 +38,7 @@ export default function Home(props) {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${backgroundImage})`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${backgroundImage})`,
         }}
       >
         <Container maxWidth="md" style={{ color: "#fff", zIndex: 1 }}>
@@ -65,12 +65,14 @@ export default function Home(props) {
                   variant="contained"
                   color="primary"
                   sx={{ textTransform: "none" }}
+                  href="/signup"
                 >
                   Get Started
                 </Button>
 
                 <Button
                   variant="outlined"
+                  href="/login"
                   color="inherit"
                   sx={{ textTransform: "none" }}
                 >
@@ -89,29 +91,22 @@ export default function Home(props) {
         sx={{ marginBottom: "50px" }}
       >
         {props.features.map((feature, index) => (
-          <Grid key={index} item xs={12} sm={6} md={4}>
-            <Card
-              variant="outlined"
-              onClick={() => {
-                window.location = feature.nav;
-              }}
-            >
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="140"
-                  image={generateRandomHealthImageUrl()}
-                  alt={feature.title}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {feature.title}
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary">
-                    {feature.description}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
+          <Grid key={index} item xs={12} sm={6} md={6}>
+            <Card variant="outlined">
+              <CardMedia
+                component="img"
+                height="250"
+                image={generateRandomHealthImageUrl()}
+                alt={feature.title}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {feature.title}
+                </Typography>
+                <Typography variant="body2" color="textSecondary">
+                  {feature.description}
+                </Typography>
+              </CardContent>
             </Card>
           </Grid>
         ))}

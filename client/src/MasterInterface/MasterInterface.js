@@ -25,7 +25,7 @@ export default function MasterInterface() {
     open: false,
   });
   const [siteAppearance, setSiteAppearance] = useState({
-    siteName: "Healthy Mon",
+    siteName: "Bhoitality",
     pages: [
       {
         displayName: "Home",
@@ -57,13 +57,13 @@ export default function MasterInterface() {
       "Open Sans",
     ],
     defaultTheme: false,
-    features: [
+
+    calculators: [
       {
         title: "Body Fat Calculator",
         description:
           "Effortlessly estimate body fat percentage with our calculator widget. Input age, gender, height, weight, and waist circumference for instant results.",
         nav: "/calculators/bodyfatcalculator",
-        isCalculator: "Y",
       },
 
       {
@@ -71,22 +71,29 @@ export default function MasterInterface() {
         description:
           "Calculate your Body Mass Index (BMI) to assess your weight status.",
         nav: "/calculators/bmi",
-        isCalculator: "Y",
+      },
+    ],
+    features: [
+      {
+        title: "Appointment Scheduling",
+        description:
+          "Allow users to schedule appointments online with healthcare providers, integrating with the facility's scheduling system if possible.",
       },
       {
-        title: "Lean Mass & Fat Mass",
+        title: "Patient Portals",
         description:
-          "Track your lean mass and fat mass to monitor your body composition.",
+          "Provide secure patient portals where users can access their medical records, test results, appointment history, and communicate with healthcare professionals securely.",
+      },
+
+      {
+        title: "Health Information and Education",
+        description:
+          "Offer a comprehensive library of articles, videos, infographics, and other educational resources on various health topics, conditions, treatments, and preventive care measures.",
       },
       {
-        title: "Calorie Tracker",
+        title: "Health Information and Education",
         description:
-          "Keep track of your daily calorie intake to maintain a healthy diet.",
-      },
-      {
-        title: "Fitness Lifestyle",
-        description:
-          "Get tips and advice on adopting a fit lifestyle for better health.",
+          "Offer a comprehensive library of articles, videos, infographics, and other educational resources on various health topics, conditions, treatments, and preventive care measures.",
       },
     ],
   });

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  Container,
   Typography,
   TextField,
   Button,
@@ -456,7 +455,10 @@ const BodyFatCalculator = () => {
 
   return (
     <Grid container spacing={2} sx={{ mt: 2, p: 2 }}>
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} md={5}>
+        <Typography variant="h6" sx={{ mb: 2 }}>
+          Select Gender
+        </Typography>
         <ToggleButtonGroup
           orientation="vertical"
           value={selectedOption}
@@ -499,7 +501,10 @@ const BodyFatCalculator = () => {
           </Table>
         </TableContainer>
       </Grid>
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} md={7}>
+        <Typography variant="h6" sx={{ mb: 2 }}>
+          Enter Values
+        </Typography>
         {selectedOption && renderInputFields()}
 
         {output === null ? (
@@ -521,51 +526,47 @@ const BodyFatCalculator = () => {
 
       <Grid item xs={12}>
         <Typography variant="h4">Body Fat Calculation Formulas</Typography>
-        <Typography variant="body2">
-          <h3>For Males:</h3>
-          <p>
-            Body Fat Percentage = 86.010 x log<sub>10</sub>(Waist - Neck) -
-            70.041 x log<sub>10</sub>(Height) + 36.76
-          </p>
-          <p>
-            Where,
-            <br />
-            - Waist is measured in centimeters (cm).
-            <br />
-            - Neck is measured in centimeters (cm).
-            <br />- Height is measured in meters (m).
-          </p>
-          <h3>For Females:</h3>
-          <p>
-            Body Fat Percentage = 163.205 x log<sub>10</sub>(Waist + Hip - Neck)
-            - 97.684 x log<sub>10</sub>(Height) - 78.387
-          </p>
-          <p>
-            Where,
-            <br />
-            - Waist is measured in centimeters (cm).
-            <br />
-            - Hip is measured in centimeters (cm).
-            <br />
-            - Neck is measured in centimeters (cm).
-            <br />- Height is measured in meters (m).
-          </p>
+        <Typography variant="h6" component="h3">
+          For Males:
         </Typography>
-        <Typography variant="h4">The Science of Body Fat</Typography>
+        <Typography variant="body2">
+          Body Fat Percentage = 86.010 x log<sub>10</sub>(Waist - Neck) - 70.041
+          x log<sub>10</sub>(Height) + 36.76 Where,
+          <br />
+          - Waist is measured in centimeters (cm).
+          <br />
+          - Neck is measured in centimeters (cm).
+          <br />- Height is measured in meters (m).
+        </Typography>
+        <Typography variant="h6" component="h3">
+          For Females:
+        </Typography>
+        <Typography variant="body2">
+          Body Fat Percentage = 163.205 x log<sub>10</sub>(Waist + Hip - Neck) -
+          97.684 x log<sub>10</sub>(Height) - 78.387 Where,
+          <br />
+          - Waist is measured in centimeters (cm).
+          <br />
+          - Hip is measured in centimeters (cm).
+          <br />
+          - Neck is measured in centimeters (cm).
+          <br />- Height is measured in meters (m).
+        </Typography>
 
-        <p>
+        <Typography variant="h4">The Science of Body Fat</Typography>
+        <Typography>
           The scientific term for body fat is "<em>adipose tissue</em>." Adipose
           tissue serves a number of important functions. Its primary purpose is
           to store lipids from which the body creates energy. In addition, it
           secretes a number of important hormones, and provides the body with
           some cushioning as well as insulation.
-        </p>
+        </Typography>
 
-        <h3>Types of Body Fat</h3>
-        <p>
+        <Typography variant="h6">Types of Body Fat</Typography>
+        <Typography>
           Body fat includes <strong>essential body fat</strong> and{" "}
           <strong>storage body fat</strong>.
-        </p>
+        </Typography>
         <ul>
           <li>
             <strong>Essential body fat</strong> is a base level of fat that is
@@ -584,38 +585,38 @@ const BodyFatCalculator = () => {
           </li>
         </ul>
 
-        <h3>Effects of Body Fat</h3>
-        <p>
+        <Typography variant="h6">Effects of Body Fat</Typography>
+        <Typography>
           While excess body fat can have detrimental effects on health,
           insufficient body fat can also have negative health effects. Managing
           body fat percentage below or even at the essential body fat range is
           crucial, and individuals should discuss this with a medical
           professional.
-        </p>
+        </Typography>
 
-        <h3>Factors Influencing Body Fat</h3>
-        <p>
+        <Typography variant="h6">Factors Influencing Body Fat</Typography>
+        <Typography>
           The rate at which body fat accumulates varies from person to person
           and is influenced by genetic and behavioral factors such as exercise
           and diet. Certain individuals may find it more challenging to reduce
           abdominal fat, but proper diet and exercise can help reduce stored
           fat.
-        </p>
+        </Typography>
 
-        <h3>Gender Differences and Aging</h3>
-        <p>
+        <Typography variant="h6">Gender Differences and Aging</Typography>
+        <Typography>
           Men and women store body fat differently, and this can change over
           time. Reduced sexual hormones after age 40 or menopause in women can
           lead to excess body fat around the stomach in men or around the
           buttocks and thighs in women.
-        </p>
+        </Typography>
 
-        <p>
+        <Typography>
           <em>Note:</em> Body weight is comprised of multiple factors, including
           body fat, muscle, bone density, and water content. Being overweight
           does not necessarily indicate excess body fat, as highly muscular
           individuals may be classified as overweight.
-        </p>
+        </Typography>
       </Grid>
     </Grid>
   );
