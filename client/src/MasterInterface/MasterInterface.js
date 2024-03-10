@@ -6,7 +6,6 @@ import Home from "./Home";
 import CustomAlert from "./CustomAlert/CustomAlert";
 import Footer from "./Footer";
 import Calculators from "./Calculators";
-import BmiCalculator from "./Calculators/BMICalculator";
 import CustomBreadcrumbs from "./CustomBreadcrumbs";
 import LoginPage from "./LoginController/LoginPage";
 import UserProfile from "./LoginController/UserProfile";
@@ -16,6 +15,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import BMICalculator from "./Calculators/BMICalculator";
+import BodyFatCalculator from "./Calculators/BodyFatCalculator";
 
 export default function MasterInterface() {
   const [alertConfig, setAlertConfig] = useState({
@@ -59,10 +59,19 @@ export default function MasterInterface() {
     defaultTheme: false,
     features: [
       {
+        title: "Body Fat Calculator",
+        description:
+          "Effortlessly estimate body fat percentage with our calculator widget. Input age, gender, height, weight, and waist circumference for instant results.",
+        nav: "/calculators/bodyfatcalculator",
+        isCalculator: "Y",
+      },
+
+      {
         title: "BMI Calculator",
         description:
           "Calculate your Body Mass Index (BMI) to assess your weight status.",
-        nav: "calculators/bmi",
+        nav: "/calculators/bmi",
+        isCalculator: "Y",
       },
       {
         title: "Lean Mass & Fat Mass",
@@ -202,6 +211,16 @@ export default function MasterInterface() {
               path="/calculators/bmi"
               element={
                 <BMICalculator
+                  setSiteAppearance={setSiteAppearance}
+                  siteAppearance={siteAppearance}
+                />
+              }
+            />
+
+            <Route
+              path="/calculators/bodyfatcalculator"
+              element={
+                <BodyFatCalculator
                   setSiteAppearance={setSiteAppearance}
                   siteAppearance={siteAppearance}
                 />

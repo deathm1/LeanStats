@@ -33,7 +33,7 @@ const FullScreenImage = (props) => {
           <IconButton
             aria-label="close"
             onClick={handleClose}
-            style={{ position: "absolute", right: "10px", top: "10px" }}
+            style={{ position: "absolute", right: "5px", top: "5px" }}
           >
             <CloseFullscreen />
           </IconButton>

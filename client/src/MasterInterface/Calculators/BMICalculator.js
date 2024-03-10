@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  Container,
   Typography,
   TextField,
   Button,
@@ -13,10 +12,8 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Stack,
-  AccordionActions,
 } from "@mui/material";
-import FullScreenImage from "../Componenets/FullScreenImage";
+import BMIChart from "../Componenets/BMIChart";
 import { ExpandMore } from "@mui/icons-material";
 
 const BMICalculator = () => {
@@ -84,8 +81,8 @@ const BMICalculator = () => {
   return (
     <Grid container spacing={2} sx={{ mt: 1 }}>
       <Grid item xs={12} sm={12}>
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm={5}>
+        <Grid container spacing={1}>
+          <Grid item xs={12} md={4}>
             <Paper
               style={{ padding: "20px", textAlign: "center" }}
               variant="outlined"
@@ -93,7 +90,7 @@ const BMICalculator = () => {
               <Typography variant="h4" gutterBottom>
                 BMI Calculator
               </Typography>
-              <Grid container alignItems="center" spacing={2}>
+              <Grid container alignItems="center" spacing={2} sx={{ mt: 2 }}>
                 <Grid item xs={8}>
                   <TextField
                     label="Height"
@@ -153,12 +150,14 @@ const BMICalculator = () => {
               <Button
                 variant="contained"
                 color="primary"
+                size="small"
                 onClick={calculateBMI}
                 fullWidth
-                style={{ marginTop: "20px" }}
+                style={{ marginTop: "20px", textTransform: "none" }}
               >
                 Calculate BMI
               </Button>
+
               {bmi !== null && (
                 <div>
                   <Typography
@@ -175,18 +174,9 @@ const BMICalculator = () => {
               )}
             </Paper>
           </Grid>
-          <Grid item xs={12} sm={7}>
-            <Paper
-              style={{ padding: "20px", textAlign: "center" }}
-              variant="outlined"
-            >
-              <Typography variant="h4">BMI Chart</Typography>
-
-              <FullScreenImage
-                imageurl={
-                  "https://avicennaint.com/wp-content/uploads/2022/01/bmi-chart-imp.webp"
-                }
-              />
+          <Grid item xs={12} md={8}>
+            <Paper style={{ padding: "10px" }} variant="outlined">
+              <BMIChart />
             </Paper>
           </Grid>
         </Grid>
